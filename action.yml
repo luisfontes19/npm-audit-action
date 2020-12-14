@@ -1,0 +1,65 @@
+name: 'npm-audit-action'
+description: 'Action to run npm audit, and create pull request with fixes'
+inputs:
+  github-token:
+    description: "Github Token to create the pull requests"
+    required: true
+    default: ""
+  only:
+    description: "[NPM PARAM] Specify if only wants to fix 'dev' or 'prod' issues. If not specify will use all"
+    required: false
+    default: ""
+  level:
+    description: "[NPM PARAM] Audit level. Allowed values are: low|moderate|high|critical."
+    required: false
+    default: ""
+  fix:
+    description: "[NPM PARAM] Use this parameter if you want to automate a fix for the found issues"
+    required: false
+    default: false
+  package-lock-only:
+    description: "[NPM PARAM] "
+    required: false
+    default: false
+  force:
+    description: "[NPM PARAM] Force the fixes even if they can create issues"
+    required: false
+    default: false
+  json:
+    description: "[NPM PARAM] JSON output"
+    required: false
+    default: false
+  git-user:
+    description: "Git user config to commit the changes of a fix"
+    required: false
+    default: action-npm-audit
+  git-email:
+    description: "Git email config to commit the changes of a fix"
+    required: false
+    default: action-npm-audit
+  git-message:
+    description: "Git commit message"
+    required: false
+    default: "npm fix run from npm-audit action"
+  git-pr-title:
+    description: "Git Pull Request Title"
+    required: false
+    default: "[SECURITY] NPM audit fix"
+  git-branch:
+    description: "Git branch to where commit the fixes"
+    required: false
+    default: npm-audit-action
+  git-remote:
+    description: "Git remote name to where create the PR"
+    required: false
+    default: origin
+  project-path:
+    description: "The path to the npm project"
+    required: false
+    default: "."
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+branding:
+  icon: 'package'  
+  color: 'red'

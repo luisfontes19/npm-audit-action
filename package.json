@@ -1,0 +1,24 @@
+{
+  "name": "npm-audit",
+  "version": "0.1.0",
+  "description": "Run npm audit for production only dependencies",
+  "scripts": {
+    "start:dev": "npx nodemon --watch \"src/**/*.ts\" --ignore \"node_modules/**/*\" --exec NODE_ENV=DEVELOPMENT npx ts-node src/index.ts",
+    "build": "ncc build -m src/index.ts"
+  },
+  "author": "luisfontes@protonmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/exec": "^1.0.4",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.12",
+    "@vercel/ncc": "^0.25.1",
+    "nodemon": "^2.0.6",
+    "npx": "^10.2.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.2"
+  }
+}

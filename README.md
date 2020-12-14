@@ -1,4 +1,4 @@
-# Action
+# Npm Audit Action
 
 Github action to run npm audit, and even create a PR with the fixes
 

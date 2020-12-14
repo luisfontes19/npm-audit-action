@@ -1,4 +1,4 @@
-name: 'npm-audit-action'
+name: 'npm-audit'
 description: 'Action to run npm audit, and create pull request with fixes'
 inputs:
   github-token:
